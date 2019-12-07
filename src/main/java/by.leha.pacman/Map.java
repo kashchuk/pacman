@@ -13,13 +13,22 @@ public class Map {
     private int width;
     private int scale;
     public Cell[][] cells;
+    Referee referee;
 
-    public Map(int height, int width, int scale) {
+    public Map(int height, int width, int scale, Referee referee)  {
         this.height = height;
         this.width = width;
         this.scale = scale;
-        Random random = new Random();
+        this.referee = referee;
         cells = new Cell[height][width];
+        setObstacles();
+        putFood();
+        settlePacman();
+        settleGhosts();
+    }
+
+    private void setObstacles() {
+        Random random = new Random();
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 cells[i][j] = new Cell(new Coordinates(i, j));
@@ -33,23 +42,40 @@ public class Map {
         }
     }
 
+    public void putFood() {
+        putPellets();
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (cells[i][j].isFree()) {
+                    cells[i][j].putTheFoodOnTheCell();
+                }
+            }
+        }
+    }
+
+    public void putPellets() {
+        cells[1][10].putThePelletOnTheCell();
+    }
+
+    public void settlePacman() {
+        int landingCellNumber = 5;
+        cells[landingCellNumber][landingCellNumber].settleOnTheCell(
+                new Pacman(this, new Coordinates(landingCellNumber, landingCellNumber), referee));
+        cells[landingCellNumber][landingCellNumber].removeObstacleFromTheCell();
+    }
+
+    public void settleGhosts() {
+        cells[8][8].settleOnTheCell(new Ghost(this, new Coordinates(8, 8)));
+        cells[9][9].settleOnTheCell(new Ghost(this, new Coordinates(9, 9)));
+    }
+
+
     public int getHeight() {
         return height;
     }
 
     public int getWidth() {
         return width;
-    }
-
-    public void settleGhosts() {
-        cells[8][8].settleOnTheCell(new Ghost(this, new Coordinates(8, 8)));
-    }
-
-    public void settlePacman() {
-        int landingCellNumber = 5;
-        cells[landingCellNumber][landingCellNumber].settleOnTheCell(
-                new Pacman(this, new Coordinates(landingCellNumber, landingCellNumber)));
-        cells[landingCellNumber][landingCellNumber].removeObstacleFromTheCell();
     }
 
     public List<Creature> getCreatures() {
@@ -73,75 +99,12 @@ public class Map {
         cells[creature.coordinates.getX()][creature.coordinates.getY()].leaveTheCell(creature);
     }
 
-
-
     public boolean isTheCellWithoutObstacles(int x, int y) {
         return cells[x][y].isTheCellWithoutObstacles();
     }
 
     public boolean isPacManOnTheCell(int x, int y) {
-        List<Creature> creatures = cells[x][y].getCreatures();
-        boolean answer = false;
-        for (Creature creature : creatures) {
-            if (creature.getClass().getSimpleName().equals("Pacman")) { // Refactor (instanceof)
-                answer = true;
-            }
-            ;
-        }
-        return answer;
-    }
-
-
-    protected void drawMap(GraphicsContext graphicsContext) throws InterruptedException {
-        //drawField(graphicsContext);
-        drawObstacles(graphicsContext);
-//        drawGhosts(graphicsContext);
-
-//        graphicsContext.setFill(Color.GREEN);
-//        graphicsContext.setStroke(Color.BLUE);
-
-
-//        graphicsContext.setLineWidth(5);
-//        graphicsContext.strokeLine(200, 400, 400, 0);
-//        graphicsContext.fillOval(100, 100, 100, 100);
-//        graphicsContext.fillArc(250, 100, 100, 100, 45, 270, ArcType.ROUND);
-//        graphicsContext.fillPolygon(new double[]{10, 40, 10, 40},
-//                new double[]{210, 210, 240, 240}, 4);
-//        graphicsContext.strokePolygon(new double[]{60, 90, 60, 90},
-//                new double[]{210, 210, 240, 240}, 4);
-//        graphicsContext.strokePolyline(new double[]{110, 140, 110, 140},
-//                new double[]{210, 210, 240, 240}, 4);
-    }
-
-    private void drawField(GraphicsContext graphicsContext) {
-        //Refactor
-    }
-
-    private void drawObstacles(GraphicsContext graphicsContext) {
-        graphicsContext.setFill(Color.LIGHTGRAY);
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                if (cells[i][j].isTheObstacleOnTheCell()) {
-                    graphicsContext.fillRect(i * scale, j * scale, scale, scale);
-                }
-            }
-        }
-    }
-
-    private void drawGhosts(GraphicsContext graphicsContext) {
-        graphicsContext.setFill(Color.RED);
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                if (cells[i][j].whatTypeOfCreatureOnTheCell("Ghost")) {
-                    graphicsContext.fillOval(i * scale, j * scale, 0.5 * scale, 0.8 * scale);
-
-
-                    graphicsContext.fillRect((i + 1) * scale, j * scale, scale, scale);
-                    graphicsContext.fillRect(i * scale, (j + 1) * scale, scale, scale);
-
-                }
-            }
-        }
+        return cells[x][y].isThePacmanOnTheCell();
     }
 
     public List<Ghost> getGhosts() { // Refactor !!!
@@ -168,5 +131,7 @@ public class Map {
         return pacman;
     }
 
-
+    public Cell[][] getCells() {
+        return cells;
+    }
 }

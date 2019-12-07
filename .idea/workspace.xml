@@ -1,12 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a5219e2-d609-403f-ae29-214ddf9dccb8" name="Default Changelist" comment="" />
+    <list default="true" id="2a5219e2-d609-403f-ae29-214ddf9dccb8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by.leha.pacman/CycleFinishedEventHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by.leha.pacman/Drawer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by.leha.pacman/GameCycle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by.leha.pacman/Referee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by.leha.pacman/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by.leha.pacman/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by.leha.pacman/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by.leha.pacman/Creature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by.leha.pacman/CreatureJavaFxModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by.leha.pacman/CreatureJavaFxModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by.leha.pacman/Ghost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by.leha.pacman/Ghost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by.leha.pacman/GhostJavaFxModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by.leha.pacman/GhostJavaFxModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by.leha.pacman/KeyEventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by.leha.pacman/KeyEventHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by.leha.pacman/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by.leha.pacman/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by.leha.pacman/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by.leha.pacman/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by.leha.pacman/Pacman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by.leha.pacman/Pacman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by.leha.pacman/PacmanJavaFxModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by.leha.pacman/PacmanJavaFxModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/leha/pacman/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/leha/pacman/Cell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/leha/pacman/Creature.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/leha/pacman/Creature.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/leha/pacman/CreatureJavaFxModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/leha/pacman/CreatureJavaFxModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/leha/pacman/Ghost.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/leha/pacman/Ghost.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/leha/pacman/GhostJavaFxModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/leha/pacman/GhostJavaFxModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/leha/pacman/KeyEventHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/leha/pacman/KeyEventHandler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/leha/pacman/KeyEventHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/leha/pacman/KeyEventHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/leha/pacman/Launcher$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/leha/pacman/Launcher$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/leha/pacman/Launcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/leha/pacman/Launcher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/leha/pacman/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/leha/pacman/Map.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/leha/pacman/Pacman.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/leha/pacman/Pacman.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/leha/pacman/PacmanJavaFxModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/leha/pacman/PacmanJavaFxModel.class" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="pacman" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -16,6 +59,10 @@
     </option>
   </component>
   <component name="ProjectId" id="1UZq1F9andChRzxmYDScWvyPfIt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean javafx:run" />
@@ -65,5 +112,18 @@
       <updated>1575574247736</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

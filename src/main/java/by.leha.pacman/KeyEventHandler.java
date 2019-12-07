@@ -5,27 +5,30 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 public class KeyEventHandler implements EventHandler<KeyEvent> {
-    public Map map;
-    int fake = 0;
+    private PacmanJavaFxModel pacmanJavaFxModel;
 
-    KeyEventHandler(Map map) {
-        this.map = map;
+    KeyEventHandler(CreatureJavaFxModel creatureJavaFxModel) {
+        this.pacmanJavaFxModel = (PacmanJavaFxModel) creatureJavaFxModel;
     }
     @Override
     public void handle(KeyEvent keyEvent) {
         KeyCode keyCode = keyEvent.getCode();
         switch (keyCode) {
             case UP:
-                map.getThePacman().setDirectionToGo(Direction.UP);
+                pacmanJavaFxModel.setDirectionToGo(Direction.UP);
+                pacmanJavaFxModel.getPane().setRotate(270);
                 break;
             case DOWN:
-                map.getThePacman().setDirectionToGo(Direction.DOWN);
+                pacmanJavaFxModel.setDirectionToGo(Direction.DOWN);
+                pacmanJavaFxModel.getPane().setRotate(90);
                 break;
             case LEFT:
-                map.getThePacman().setDirectionToGo(Direction.LEFT);
+                pacmanJavaFxModel.setDirectionToGo(Direction.LEFT);
+                pacmanJavaFxModel.getPane().setRotate(180);
                 break;
             case RIGHT:
-                map.getThePacman().setDirectionToGo(Direction.RIGHT);
+                pacmanJavaFxModel.setDirectionToGo(Direction.RIGHT);
+                pacmanJavaFxModel.getPane().setRotate(0);
             default:
                 //map.getPacman().setDirectionToGo(null);
         }

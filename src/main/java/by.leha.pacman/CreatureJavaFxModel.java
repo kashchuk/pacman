@@ -3,20 +3,26 @@ package by.leha.pacman;
 import javafx.animation.Timeline;
 import javafx.scene.Group;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 public abstract class CreatureJavaFxModel {
 
     Pane pane;
-    Group root;
+    Group board;
     Creature creature;
+    Duration duration;
+    Color color;
     int scale;
     int previousX;
     int previousY;
 
-    public CreatureJavaFxModel(Creature creature, Group root, int scale) {
+    public CreatureJavaFxModel(Creature creature, Group board, int scale, Duration duration, Color color) {
         this.creature = creature;
-        this.root = root;
+        this.board = board;
         this.scale = scale;
+        this.duration = duration;
+        this.color = color;
         createImage();
         previousX = creature.getX();
         previousY = creature.getY();
@@ -49,7 +55,7 @@ public abstract class CreatureJavaFxModel {
     }
 
     public void settleOnTheScene() {
-        root.getChildren().add(pane); //Refactor
+        board.getChildren().add(pane); //Refactor
     }
 
     public void animate() {
@@ -65,4 +71,7 @@ public abstract class CreatureJavaFxModel {
     protected abstract void createImage();
 
 
+    public void setDirectionToGo(Direction direction) {
+        creature.setDirectionToGo(direction);
+    }
 }

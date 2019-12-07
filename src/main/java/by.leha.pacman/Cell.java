@@ -7,6 +7,8 @@ public class Cell {
     private Coordinates coordinates;
     public List<Creature> creaturesOnTheCell = new ArrayList<Creature>();
     private boolean isTheObstacleOnTheCell;
+    private boolean isThePelletOnTheCell;
+    private boolean isTheFoodOnTheCell;
 
     public Cell(Coordinates coordinates) {
         this.coordinates = coordinates;
@@ -22,6 +24,10 @@ public class Cell {
 
     public void leaveTheCell(Creature creature) {
         creaturesOnTheCell.remove(creature);
+    }
+
+    public List<Creature> getCreatures() {
+        return creaturesOnTheCell;
     }
 
     public boolean isThePacmanOnTheCell() {
@@ -68,18 +74,13 @@ public class Cell {
         return ghosts;
     }
 
-
-    public List<Creature> getCreatures() {
-        return creaturesOnTheCell;
-    }
-
     public void setObstacleOnTheCell() {
         this.isTheObstacleOnTheCell = true;
     }
 
     public boolean isTheCellWithoutObstacles() {
         return !isTheObstacleOnTheCell;
-    }
+    } //Refactor (might not need)
 
     public boolean isTheObstacleOnTheCell() {
         return isTheObstacleOnTheCell;
@@ -89,17 +90,37 @@ public class Cell {
         isTheObstacleOnTheCell = false;
     }
 
-
-
-    public boolean whatTypeOfCreatureOnTheCell(String creatureType) { //Refactro (remove)
-        boolean isGhostOnCell = false;
-        for (Creature creature : creaturesOnTheCell) {
-            if (creature.getClass().getSimpleName().equals(creatureType)) {
-                isGhostOnCell = true;
-            }
-        }
-        return isGhostOnCell;
+    public boolean isThePelletOnTheCell() {
+        return isThePelletOnTheCell;
     }
 
+    public void putThePelletOnTheCell() {
+        isThePelletOnTheCell = true;
+    }
+
+    public void eatThePelletOnTheCell() {
+        isThePelletOnTheCell = false;
+    }
+
+    public boolean isTheFoodOnTheCell() {
+        return isTheFoodOnTheCell;
+    }
+
+    public void putTheFoodOnTheCell() {
+        isTheFoodOnTheCell = true;
+    }
+
+    public void eatTheFoodOnTheCell() {
+        isTheFoodOnTheCell = false;
+    }
+
+
+    public boolean isFree() {
+        boolean isFree = true;
+        if (isTheObstacleOnTheCell() || isThePacmanOnTheCell() || isThePelletOnTheCell() || isTheGhostOnTheCell()) {
+            isFree = false;
+        }
+        return isFree;
+    }
 
 }

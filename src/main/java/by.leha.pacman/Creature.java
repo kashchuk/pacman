@@ -16,6 +16,10 @@ public abstract class Creature {
         this.directionToGo = null;
     }
 
+    public void setDirectionToGo(Direction directionToGo) {
+        this.directionToGo = directionToGo;
+    }
+
     public int getX() {
         return coordinates.getX();
     }
@@ -27,13 +31,13 @@ public abstract class Creature {
     public void move() {
     }
 
-    public boolean isDirectionWithoutObstacles(Direction direction) {
+    public boolean isDirectionWithoutObstacles(Direction direction) { //Refactor !!! (Two responsibilities)
         boolean isDirectionWithoutObstacles = false;
         Coordinates directionVector = direction.getDirectionVector(); //Refactor
         int x = coordinates.getX() + directionVector.getX(); //Refactor
         int y = coordinates.getY() + directionVector.getY(); //Refactor
         if (map.isTheCellWithoutObstacles(x, y)) {
-            possibleDirections.add(direction);
+            possibleDirections.add(direction); //Refactor !!! (Look header)
             isDirectionWithoutObstacles = true;
         }
         return isDirectionWithoutObstacles;

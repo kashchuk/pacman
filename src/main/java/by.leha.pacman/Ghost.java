@@ -21,7 +21,6 @@ public class Ghost extends Creature {
         go();
         isPacmanDetected = false;
         possibleDirections.clear();
-
     }
 
     private void lookAround() {
